@@ -1,0 +1,12 @@
+browser:
+        Edge:
+                regex:
+                        - https://www.microsoft.com/.*
+                cmd: edge 
+        
+        Chrome:
+                regex:
+                        - https://www.google.com/.*
+                        - https://www.youtube.com/.*
+                cmd: chrome 
+

@@ -29,7 +29,7 @@ for browser in content['browser']:
     cmd[i] = content['browser'][browser]['cmd']
 
     # prints index, command, link
-    print (i, cmd[i], string)
+    print(i, cmd[i], string)
 
     # iterate by regex to check for matches
     for step in content['browser'][browser]['regex']:

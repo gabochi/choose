@@ -46,6 +46,6 @@ for browser in content['browser']:
 
 # no matches found, select browser manually
 s = int(input("No matches found, select command by number and press ENTER: "))
-command= cmd[s] + " " + string
+command = cmd[s] + " " + string
 os.system(command)
 

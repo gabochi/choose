@@ -1,11 +1,14 @@
 #!/usr/bin/env python
 
-import yaml, re, sys, os
+import yaml
+import re
+import sys
+import os
 
 # define command index variable
 i = 0
 
-# define command list 
+# define command list
 cmd = ['netscape'] * 10
 
 # get last argument index
@@ -24,7 +27,7 @@ for browser in content['browser']:
     # increment command index and store the instruction in the cmd list
     i+=1
     cmd[i] = content['browser'][browser]['cmd']
-    
+
     # prints index, command, link
     print (i, cmd[i], string)
 
@@ -35,7 +38,7 @@ for browser in content['browser']:
         # there is a match
         if match:
             print(f"Match {browser}, running {cmd[i]} {string}")
-            
+
             # build, excecute the command and quit
             command= cmd[i] + " " + string
             os.system(command)

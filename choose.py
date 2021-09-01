@@ -25,7 +25,7 @@ with open("config.yaml", 'r') as stream:
 for browser in content['browser']:
 
     # increment command index and store the instruction in the cmd list
-    i+=1
+    i += 1
     cmd[i] = content['browser'][browser]['cmd']
 
     # prints index, command, link

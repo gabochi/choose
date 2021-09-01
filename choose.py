@@ -40,7 +40,7 @@ for browser in content['browser']:
             print(f"Match {browser}, running {cmd[i]} {string}")
 
             # build, excecute the command and quit
-            command= cmd[i] + " " + string
+            command = cmd[i] + " " + string
             os.system(command)
             quit()
 

@@ -15,8 +15,8 @@ def main():
     cmd = ['netscape'] * 10
 
     parser = argparse.ArgumentParser(description='Choose your Browser')
-    parser.add_argument('--link', help='Link to follow')
-    parser.add_argument('--config', help='YAML config file')
+    parser.add_argument('-l', '--link', help='Link to follow')
+    parser.add_argument('-c', '--config', help='YAML config file')
     args = parser.parse_args()
   
 

@@ -4,7 +4,6 @@ import yaml
 import re
 import sys
 import os
-import argparse
 
 def main():
     
@@ -14,28 +13,14 @@ def main():
     # define command list
     cmd = ['netscape'] * 10
 
-    parser = argparse.ArgumentParser(description='Choose your Browser')
-    parser.add_argument('--link', help='Link to follow')
-    parser.add_argument('--config', help='YAML config file')
-    args = parser.parse_args()
-  
-
-
     # get last argument index
-    # THE OLD WAY
-    #args = len(sys.argv) - 1
+    args = len(sys.argv) - 1
+
     # get the argument, supposedly link
-    # THE OLD WAY
-    #string = sys.argv[args]
+    string = sys.argv[args]
 
     # open YAML configuration file
-    
-    # THE OLD WAY
-    #with open("config.yaml", 'r') as stream:
-    
-    # THE NEW WAY
-    with open(args.config, 'r') as stream:
-
+    with open("config.yaml", 'r') as stream:
         content = yaml.safe_load(stream)
 
     # iterate by browser
@@ -46,24 +31,24 @@ def main():
         cmd[i] = content['browser'][browser]['cmd']
 
         # prints index, command, link
-        print(i, cmd[i], args.link)
+        print(i, cmd[i], string)
 
         # iterate by regex to check for matches
         for step in content['browser'][browser]['regex']:
-            match = re.search(step, args.link)
+            match = re.search(step, string)
 
             # there is a match
             if match:
-                print(f"Match {browser}, running {cmd[i]} {args.link}")
+                print(f"Match {browser}, running {cmd[i]} {string}")
 
                 # build, excecute the command and quit
-                command = cmd[i] + " " + args.link
+                command = cmd[i] + " " + string
                 os.system(command)
                 quit()
 
     # no matches found, select browser manually
     s = int(input("No matches found, select command by number and press ENTER: "))
-    command = cmd[s] + " " + args.link
+    command = cmd[s] + " " + string
     os.system(command)
 
 if __name__ == "__main__":

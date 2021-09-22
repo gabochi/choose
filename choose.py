@@ -2,12 +2,13 @@
 
 import yaml
 import re
-# import sys  THE OLD WAY
+# import sys THE OLD WAY
 import os
 import argparse
 
+
 def main():
-    
+
     # define command index variable
     i = 0
 
@@ -18,7 +19,7 @@ def main():
     parser.add_argument('-l', '--link', help='Link to follow')
     parser.add_argument('-c', '--config', help='YAML config file')
     args = parser.parse_args()
-  
+
     # get last argument index
     # THE OLD WAY
     # args = len(sys.argv) - 1
@@ -27,10 +28,10 @@ def main():
     # string = sys.argv[args]
 
     # open YAML configuration file
-    
+
     # THE OLD WAY
     # with open("config.yaml", 'r') as stream:
-    
+
     # THE NEW WAY
     with open(args.config, 'r') as stream:
 
@@ -63,6 +64,7 @@ def main():
     s = int(input("No matches found, select cmd by number: "))
     command = cmd[s] + " " + args.link
     os.system(command)
+
 
 if __name__ == "__main__":
     main()
